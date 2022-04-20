@@ -30,12 +30,12 @@
                 <input type="text" class="form-control" name="title" id="title" required>
             </div>
             <div class="form-group">
-                <label for="lecture">講座<strong class="text-danger">*</strong></label>
+                <label for="lecture">講師<strong class="text-danger">*</strong></label>
                 <input type="text" class="form-control" name="lecture" id="lecture" required>
             </div>
             <div class="form-group">
-                <label for="date">辦理日期<strong class="text-danger">*</strong></label>
-                <input type="date" class="form-control" name="date" id="date" required maxlength="10" value="{{ date('Y-m-d') }}">
+                <label for="date">辦理日期時間<strong class="text-danger">*</strong></label>
+                <input type="datetime-local" class="form-control" name="date" id="date" required maxlength="10" value="{{ date('Y-m-d') }}">
             </div>
             <div class="form-group">
                 <label for="place">活動地點<strong class="text-danger">*</strong></label>

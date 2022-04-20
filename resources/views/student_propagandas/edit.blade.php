@@ -30,12 +30,12 @@
                 <input type="text" class="form-control" name="title" id="title" required value="{{ $student_propaganda->title }}">
             </div>
             <div class="form-group">
-                <label for="lecture">講座<strong class="text-danger">*</strong></label>
+                <label for="lecture">講師<strong class="text-danger">*</strong></label>
                 <input type="text" class="form-control" name="lecture" id="lecture" required value="{{ $student_propaganda->lecture }}">
             </div>
             <div class="form-group">
-                <label for="date">辦理日期<strong class="text-danger">*</strong></label>
-                <input type="date" class="form-control" name="date" id="date" required maxlength="10" value="{{ $student_propaganda->date }}">
+                <label for="date">辦理日期時間<strong class="text-danger">*</strong></label>
+                <input type="datetime-local" class="form-control" name="date" id="date" required maxlength="10" value="{{ $student_propaganda->date }}">
             </div>
             <div class="form-group">
                 <label for="place">活動地點<strong class="text-danger">*</strong></label>

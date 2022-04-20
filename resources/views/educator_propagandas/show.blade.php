@@ -39,7 +39,7 @@
         </tr>
         <tr>
             <td nowrap>
-                <strong>講座</strong>
+                <strong>講師</strong>
             </td>
             <td colspan="3" nowrap>
                 {{ $educator_propaganda->lecture }}
@@ -47,7 +47,7 @@
         </tr>
         <tr>
             <td nowrap>
-                <strong>辦理日期</strong>
+                <strong>辦理日期時間</strong>
             </td>
             <td nowrap>
                 {{ $educator_propaganda->date }}
