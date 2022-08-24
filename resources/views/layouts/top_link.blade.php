@@ -51,19 +51,25 @@
             <li class="{{ $active_review1 }}"><a href="#">一般上傳管理</a>
                 <ul class="header__menu__dropdown">
                     <li><a href="{{ route('plans.review') }}">1> 年度計畫</a></li>
+                    <!--
                     <li><a href="{{ route('monthly_propagandas.review') }}">2> 每月反毒</a></li>
-                    <li><a href="{{ route('educator_propagandas.review') }}">3> 毒品防制宣導(教育人員)</a></li>
-                    <li><a href="{{ route('student_propagandas.review') }}">4> 毒品防制宣導(學生)</a></li>
-                    <li><a href="{{ route('parent_propagandas.review') }}">5> 毒品防制宣導(家長)</a></li>
-                    <li><a href="{{ route('telephone_propagandas.review') }}">6> 戒毒成功專線宣導</a></li>
+                    -->
+                    <li><a href="{{ route('educator_propagandas.review') }}">2> 毒品防制宣導(教育人員)</a></li>
+                    <li><a href="{{ route('student_propagandas.review') }}">3> 毒品防制宣導(學生)</a></li>
+                    <li><a href="{{ route('parent_propagandas.review') }}">4> 毒品防制宣導(家長)</a></li>
+                    <li><a href="{{ route('telephone_propagandas.review') }}">5> 戒毒成功專線宣導</a></li>
+                    <li><a href="{{ route('tzuchi_propagandas.review') }}">6> 慈濟無毒有我宣導</a></li>
                 </ul>
             </li>
             <li class="{{ $active_review2 }}"><a href="#">中心上傳管理</a>
                 <ul class="header__menu__dropdown">
                     <li><a href="{{ route('boe_actives.review') }}">1> 教育處自辦活動</a></li>
+                    <!--
                     <li><a href="{{ route('center_actives.review') }}">2> 反毒中心學校成果</a></li>
+                    -->
                 </ul>
             </li>
+            <!--
             <li class="{{ $active_review3 }}"><a href="#">特定上傳管理</a>
                 <ul class="header__menu__dropdown">
                     <li><a href="{{ route('specials.review') }}">1> 特定人員名冊</a></li>
@@ -71,24 +77,30 @@
                     <li><a href="{{ route('urine_screen_works.review') }}">3> 執行擴大尿篩工作</a></li>
                 </ul>
             </li>
+            -->
         @else
             <li class="{{ $active_upload1 }}"><a href="#">一般上傳</a>
                 <ul class="header__menu__dropdown">
                     <li><a href="{{ route('plans.index') }}">1> 年度計畫</a></li>
+                    <!--
                     <li><a href="{{ route('monthly_propagandas.index') }}">2> 每月反毒</a></li>
-                    <li><a href="{{ route('educator_propagandas.index') }}">3> 毒品防制宣導(教育人員)</a></li>
-                    <li><a href="{{ route('student_propagandas.index') }}">4> 毒品防制宣導(學生)</a></li>
-                    <li><a href="{{ route('parent_propagandas.index') }}">5> 毒品防制宣導(家長)</a></li>
-                    <li><a href="{{ route('telephone_propagandas.index') }}">6> 戒毒成功專線宣導</a></li>
-
+                    -->
+                    <li><a href="{{ route('educator_propagandas.index') }}">2> 毒品防制宣導(教育人員)</a></li>
+                    <li><a href="{{ route('student_propagandas.index') }}">3> 毒品防制宣導(學生)</a></li>
+                    <li><a href="{{ route('parent_propagandas.index') }}">4> 毒品防制宣導(家長)</a></li>
+                    <li><a href="{{ route('telephone_propagandas.index') }}">5> 戒毒成功專線宣導</a></li>
+                    <li><a href="{{ route('tzuchi_propagandas.index') }}">6> 慈濟無毒有我宣導</a></li>
                 </ul>
             </li>
             <li class="{{ $active_upload2 }}"><a href="#">中心上傳</a>
                 <ul class="header__menu__dropdown">
                     <li><a href="{{ route('boe_actives.index') }}">1> 教育處自辦活動</a></li>
+                    <!--
                     <li><a href="{{ route('center_actives.index') }}">2> 反毒中心學校成果</a></li>
+                    -->
                 </ul>
             </li>
+            <!--
             <li class="{{ $active_upload3 }}"><a href="#">特定上傳</a>
                 <ul class="header__menu__dropdown">
                     <li><a href="{{ route('specials.index') }}">1> 特定人員名冊</a></li>
@@ -96,6 +108,7 @@
                     <li><a href="{{ route('urine_screen_works.index') }}">3> 執行擴大尿篩工作</a></li>
                 </ul>
             </li>
+            -->
             <li class="{{ $result1 }}"><a href="#">成果下載</a>
                 <ul class="header__menu__dropdown">
                     <li><a href="{{ route('year_result') }}">1> 年度成果</a></li>

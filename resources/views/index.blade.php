@@ -51,15 +51,15 @@
                                 @endforeach
                             </div>
                             <div class="latest-prdouct__slider__item">
-                                @foreach($telephone_propagandas as $telephone_propaganda)
-                                    <a href="{{ route('telephone_propagandas.show',$telephone_propaganda->id) }}" class="latest-product__item">
+                                @foreach($tzuchi_propagandas as $tzuchi_propaganda)
+                                    <a href="{{ route('tzuchi_propagandas.show',$tzuchi_propaganda->id) }}" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            @if(count($telephone_propaganda->pics)>0)
-                                            <img src="{{ asset('storage/telephone_propagandas/'.$telephone_propaganda->id.'/'.$telephone_propaganda->pics->first()->pic) }}" alt="" style="max-width: 150px;">
+                                            @if(count($tzuchi_propaganda->pics)>0)
+                                            <img src="{{ asset('storage/tzuchi_propagandas/'.$tzuchi_propaganda->id.'/'.$tzuchi_propaganda->pics->first()->pic) }}" alt="" style="max-width: 150px;">
                                             @endif
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>{{ mb_cht_limit($telephone_propaganda->title,10) }}</h6>
+                                            <h6>{{ mb_cht_limit($tzuchi_propaganda->title,10) }}</h6>
                                         </div>
                                     </a>
                                 @endforeach
@@ -179,11 +179,11 @@
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
-                    @foreach($monthly_propagandas as $monthly_propaganda)
-                        @if(count($monthly_propaganda->pics) > 0)
+                    @foreach($telephone_propagandas as $telephone_propaganda)
+                        @if(count($telephone_propaganda->pics) > 0)
                             <div class="col-lg-3">
-                                <div class="categories__item set-bg" data-setbg="{{ asset('storage/monthly_propagandas/'.$monthly_propaganda->id.'/'.$monthly_propaganda->pics->first()->pic) }}">
-                                    <h5><a href="{{ route('monthly_propagandas.show',$monthly_propaganda->id) }}">{{ $monthly_propaganda->title }}</a></h5>
+                                <div class="categories__item set-bg" data-setbg="{{ asset('storage/telephone_propagandas/'.$telephone_propaganda->id.'/'.$telephone_propaganda->pics->first()->pic) }}">
+                                    <h5><a href="{{ route('telephone_propagandas.show',$telephone_propaganda->id) }}">{{ $telephone_propaganda->title }}</a></h5>
                                 </div>
                             </div>
                         @endif
