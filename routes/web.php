@@ -19,6 +19,7 @@ use App\Http\Controllers\SpecialController;
 use App\Http\Controllers\StudentPropagandaController;
 use App\Http\Controllers\TzuchiPropagandaController;
 use App\Http\Controllers\TelephonePropagandaController;
+use App\Http\Controllers\OtherPropagandaController;
 use App\Http\Controllers\TitleImageController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UrineScreenBookController;
@@ -62,6 +63,7 @@ Route::get('upload1/student_propaganda/{student_propaganda}/show', [StudentPropa
 Route::get('upload1/tzuchi_propaganda/{tzuchi_propaganda}/show', [TzuchiPropagandaController::class, 'show'])->name('tzuchi_propagandas.show');
 Route::get('upload1/parent_propaganda/{parent_propaganda}/show', [ParentPropagandaController::class, 'show'])->name('parent_propagandas.show');
 Route::get('upload1/telephone_propaganda/{telephone_propaganda}/show', [TelephonePropagandaController::class, 'show'])->name('telephone_propagandas.show');
+Route::get('upload1/other_propaganda/{other_propaganda}/show', [OtherPropagandaController::class, 'show'])->name('other_propagandas.show');
 
 Route::get('upload2/boe_active/{boe_active}/show', [BoeActiveController::class, 'show'])->name('boe_actives.show');
 Route::get('upload2/center_active/{center_active}/show', [CenterActiveController::class, 'show'])->name('center_actives.show');
@@ -72,6 +74,7 @@ Route::get('upload1/student_propaganda/{student_propaganda}/print', [StudentProp
 Route::get('upload1/tzuchi_propaganda/{tzuchi_propaganda}/print', [TzuchiPropagandaController::class, 'print'])->name('tzuchi_propagandas.print');
 Route::get('upload1/parent_propaganda/{parent_propaganda}/print', [ParentPropagandaController::class, 'print'])->name('parent_propagandas.print');
 Route::get('upload1/telephone_propaganda/{telephone_propaganda}/print', [TelephonePropagandaController::class, 'print'])->name('telephone_propagandas.print');
+Route::get('upload1/other_propaganda/{other_propaganda}/print', [OtherPropagandaController::class, 'print'])->name('other_propagandas.print');
 
 Route::get('upload2/boe_active/{boe_active}/print', [BoeActiveController::class, 'print'])->name('boe_actives.print');
 Route::get('upload2/center_active/{center_active}/print', [CenterActiveController::class, 'print'])->name('center_actives.print');
@@ -139,6 +142,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('upload1/telephone_propaganda/{telephone_propaganda}/update', [TelephonePropagandaController::class, 'update'])->name('telephone_propagandas.update');
     Route::get('upload1/telephone_propaganda/{telephone_propaganda_pic}/del_pic', [TelephonePropagandaController::class, 'del_pic'])->name('telephone_propagandas.del_pic');
     Route::get('upload1/telephone_propaganda/{telephone_propaganda}/destroy', [TelephonePropagandaController::class, 'destroy'])->name('telephone_propagandas.destroy');
+
+    Route::get('upload1/other_propaganda', [OtherPropagandaController::class, 'index'])->name('other_propagandas.index');
+    Route::get('upload1/other_propaganda/create', [OtherPropagandaController::class, 'create'])->name('other_propagandas.create');
+    Route::get('upload1/other_propaganda/{other_propaganda}/edit', [OtherPropagandaController::class, 'edit'])->name('other_propagandas.edit');
+    Route::post('upload1/other_propaganda/store', [OtherPropagandaController::class, 'store'])->name('other_propagandas.store');
+    Route::post('upload1/other_propaganda/{other_propaganda}/update', [OtherPropagandaController::class, 'update'])->name('other_propagandas.update');
+    Route::get('upload1/other_propaganda/{other_propaganda_pic}/del_pic', [OtherPropagandaController::class, 'del_pic'])->name('other_propagandas.del_pic');
+    Route::get('upload1/other_propaganda/{other_propaganda}/destroy', [OtherPropagandaController::class, 'destroy'])->name('other_propagandas.destroy');
+
 
     Route::get('upload2/boe_active', [BoeActiveController::class, 'index'])->name('boe_actives.index');
     Route::get('upload2/boe_active/create', [BoeActiveController::class, 'create'])->name('boe_actives.create');
@@ -279,6 +291,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('review1/telephone_propaganda/review/{date1?}/{date2?}', [TelephonePropagandaController::class, 'review'])->name('telephone_propagandas.review');
     Route::post('review1/telephone_propaganda/search', [TelephonePropagandaController::class, 'search'])->name('telephone_propagandas.search');
     Route::get('review1/telephone_propaganda/statistics/{date1}/{date2}', [TelephonePropagandaController::class, 'statistics'])->name('telephone_propagandas.statistics');
+
+    Route::get('review1/other_propaganda/review/{date1?}/{date2?}', [OtherPropagandaController::class, 'review'])->name('other_propagandas.review');
+    Route::post('review1/other_propaganda/search', [OtherPropagandaController::class, 'search'])->name('other_propagandas.search');
+    Route::get('review1/other_propaganda/statistics/{date1}/{date2}', [OtherPropagandaController::class, 'statistics'])->name('other_propagandas.statistics');
 
     Route::get('review2/boe_active/review/{date1?}/{date2?}', [BoeActiveController::class, 'review'])->name('boe_actives.review');
     Route::post('review2/boe_active/search', [BoeActiveController::class, 'search'])->name('boe_actives.search');

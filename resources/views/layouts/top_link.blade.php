@@ -59,6 +59,7 @@
                     <li><a href="{{ route('parent_propagandas.review') }}">4> 毒品防制宣導(家長)</a></li>
                     <li><a href="{{ route('telephone_propagandas.review') }}">5> 戒毒成功專線宣導</a></li>
                     <li><a href="{{ route('tzuchi_propagandas.review') }}">6> 慈濟無毒有我宣導</a></li>
+                    <li><a href="{{ route('other_propagandas.review') }}">7> 毒品危害防治宣導(其他)</a></li>
                 </ul>
             </li>
             <li class="{{ $active_review2 }}"><a href="#">中心上傳管理</a>
@@ -90,6 +91,7 @@
                     <li><a href="{{ route('parent_propagandas.index') }}">4> 毒品防制宣導(家長)</a></li>
                     <li><a href="{{ route('telephone_propagandas.index') }}">5> 戒毒成功專線宣導</a></li>
                     <li><a href="{{ route('tzuchi_propagandas.index') }}">6> 慈濟無毒有我宣導</a></li>
+                    <li><a href="{{ route('other_propagandas.index') }}">7> 毒品危害防治宣導(其他)</a></li>
                 </ul>
             </li>
             <li class="{{ $active_upload2 }}"><a href="#">中心上傳</a>

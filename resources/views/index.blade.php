@@ -65,6 +65,20 @@
                                 @endforeach
                             </div>
                             <div class="latest-prdouct__slider__item">
+                                @foreach($other_propagandas as $other_propaganda)
+                                    <a href="{{ route('other_propagandas.show',$other_propaganda->id) }}" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            @if(count($other_propaganda->pics)>0)
+                                            <img src="{{ asset('storage/other_propagandas/'.$other_propaganda->id.'/'.$other_propaganda->pics->first()->pic) }}" alt="" style="max-width: 150px;">
+                                            @endif
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6>{{ mb_cht_limit($other_propaganda->title,10) }}</h6>
+                                        </div>
+                                    </a>
+                                @endforeach
+                            </div>
+                            <div class="latest-prdouct__slider__item">
                                 @foreach($boe_actives as $boe_active)
                                     <a href="{{ route('boe_actives.show',$boe_active->id) }}" class="latest-product__item">
                                         <div class="latest-product__item__pic">

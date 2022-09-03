@@ -7,6 +7,7 @@ use App\Models\CenterActive;
 use App\Models\EducatorPropaganda;
 use App\Models\MonthlyPropaganda;
 use App\Models\MonthlyPropagandaPic;
+use App\Models\OtherPropaganda;
 use App\Models\ParentPropaganda;
 use App\Models\StudentPropaganda;
 use App\Models\TzuchiPropaganda;
@@ -57,6 +58,8 @@ class HomeController extends Controller
             ->paginate(3);
         $center_actives = CenterActive::orderBy('id', 'DESC')
             ->paginate(3);
+        $other_propagandas = OtherPropaganda::orderBy('id', 'DESC')
+            ->paginate(10);
 
         $data = [
             'posts' => $posts,
@@ -67,6 +70,7 @@ class HomeController extends Controller
             'tzuchi_propagandas' => $tzuchi_propagandas,
             'parent_propagandas' => $parent_propagandas,
             'telephone_propagandas' => $telephone_propagandas,
+            'other_propagandas' => $other_propagandas,
             'boe_actives' => $boe_actives,
             'center_actives' => $center_actives,
         ];
@@ -169,6 +173,11 @@ class HomeController extends Controller
                 ->orderBy('created_at', 'DESC')
                 ->paginate(10);
         }
+        if ($propaganda_type == "other_propagandas") {
+            $propagandas = OtherPropaganda::orderBy('date', 'DESC')
+                ->orderBy('created_at', 'DESC')
+                ->paginate(10);
+        }
         if ($propaganda_type == "tzuchi_propagandas") {
             $propagandas = TzuchiPropaganda::orderBy('date', 'DESC')
                 ->orderBy('created_at', 'DESC')
@@ -192,8 +201,9 @@ class HomeController extends Controller
             'parent_propagandas' => '家長宣導',
             'telephone_propagandas' => '戒毒成功專線宣導',
             'tzuchi_propagandas' => '慈濟無毒有我宣導',
+            'other_propagandas' => '毒品危害防治宣導(其他)',
             'boe_actives' => '教育處自辦活動',
-            'center_actives' => '中心學校成果',
+            'center_actives' => '中心學校成果(已停更)',
             'monthly_propagandas' => '每月宣導(已停更)',
         ];
 
