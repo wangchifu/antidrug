@@ -59,7 +59,7 @@ class HomeController extends Controller
         $center_actives = CenterActive::orderBy('id', 'DESC')
             ->paginate(3);
         $other_propagandas = OtherPropaganda::orderBy('id', 'DESC')
-            ->paginate(10);
+            ->paginate(3);
 
         $data = [
             'posts' => $posts,
