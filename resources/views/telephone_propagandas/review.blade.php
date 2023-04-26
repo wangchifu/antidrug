@@ -3,7 +3,7 @@
 @section('content')
     <h3>
         <img src="{{ asset('images/icons/telephone.png') }}" height="40">
-        學校辦理戒毒成功專線宣導(一年一次)管理
+        學校辦理毒品危害防制中心諮詢專線宣導(一年一次)管理
     </h3>
     <br>
     <br>

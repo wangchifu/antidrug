@@ -57,7 +57,7 @@
                     <li><a href="{{ route('educator_propagandas.review') }}">2> 毒品防制宣導(教育人員)</a></li>
                     <li><a href="{{ route('student_propagandas.review') }}">3> 毒品防制宣導(學生)</a></li>
                     <li><a href="{{ route('parent_propagandas.review') }}">4> 毒品防制宣導(家長)</a></li>
-                    <li><a href="{{ route('telephone_propagandas.review') }}">5> 戒毒成功專線宣導</a></li>
+                    <li><a href="{{ route('telephone_propagandas.review') }}">5> 毒品危害防制中心諮詢專線宣導</a></li>
                     <li><a href="{{ route('tzuchi_propagandas.review') }}">6> 慈濟無毒有我宣導</a></li>
                     <li><a href="{{ route('other_propagandas.review') }}">7> 毒品危害防治宣導(其他)</a></li>
                 </ul>
@@ -89,7 +89,7 @@
                     <li><a href="{{ route('educator_propagandas.index') }}">2> 毒品防制宣導(教育人員)</a></li>
                     <li><a href="{{ route('student_propagandas.index') }}">3> 毒品防制宣導(學生)</a></li>
                     <li><a href="{{ route('parent_propagandas.index') }}">4> 毒品防制宣導(家長)</a></li>
-                    <li><a href="{{ route('telephone_propagandas.index') }}">5> 戒毒成功專線宣導</a></li>
+                    <li><a href="{{ route('telephone_propagandas.index') }}">5> 毒品危害防制中心諮詢宣導</a></li>
                     <li><a href="{{ route('tzuchi_propagandas.index') }}">6> 慈濟無毒有我宣導</a></li>
                     <li><a href="{{ route('other_propagandas.index') }}">7> 毒品危害防治宣導(其他)</a></li>
                 </ul>

@@ -4,7 +4,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('index') }}">首頁</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('telephone_propagandas.index') }}">「戒毒成功專線宣導」列表</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('telephone_propagandas.index') }}">「毒品危害防制中心諮詢專線宣導」列表</a></li>
             <li class="breadcrumb-item active" aria-current="page">編輯資料</li>
         </ol>
     </nav>
@@ -12,7 +12,7 @@
         <div class="card-header">
             <h5>
                 <img src="{{ asset('images/icons/telephone.png') }}" height="40">
-                學校辦理戒毒成功專線宣導(一年一次)
+                學校辦理毒品危害防制中心諮詢專線宣導(一年一次)
             </h5>
         </div>
         <div class="card-body">
@@ -109,7 +109,7 @@
                 </label>
                 {{ Form::file('pics[]', ['class' => 'form-control','multiple'=>'multiple','accept'=>'image/*']) }}
             </div>
-            <button type="submit" class="btn btn-outline-success" onclick="return confirm('確定送出嗎？')"><i class="fas fa-forward"></i> 儲存「戒毒成功專線宣導」</button>
+            <button type="submit" class="btn btn-outline-success" onclick="return confirm('確定送出嗎？')"><i class="fas fa-forward"></i> 儲存「毒品危害防制中心諮詢專線宣導」</button>
             <input type="hidden" name="school_code" value="{{ auth()->user()->school_code }}">
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
             {{ Form::close() }}

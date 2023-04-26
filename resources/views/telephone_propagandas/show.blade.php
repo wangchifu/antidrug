@@ -6,9 +6,9 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('index') }}">首頁</a></li>
             @if(auth()->user()->admin==1)
-                <li class="breadcrumb-item"><a href="{{ route('telephone_propagandas.review') }}">「戒毒成功專線宣導」管理列表</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('telephone_propagandas.review') }}">「毒品危害防制中心諮詢專線宣導」管理列表</a></li>
             @else
-                <li class="breadcrumb-item"><a href="{{ route('telephone_propagandas.index') }}">「戒毒成功專線宣導」列表</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('telephone_propagandas.index') }}">「毒品危害防制中心諮詢專線宣導」列表</a></li>
             @endif
             <li class="breadcrumb-item active" aria-current="page">{{ $telephone_propaganda->title }}</li>
         </ol>

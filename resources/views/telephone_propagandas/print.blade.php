@@ -1,7 +1,7 @@
 @extends('layouts.master_print')
 
 @section('content')
-    <h2 class="text-center">學校辦理戒毒成功專線宣導-成果</h2>
+    <h2 class="text-center">學校辦理毒品危害防制中心諮詢專線宣導-成果</h2>
     <table class="table table-striped">
         <tr>
             <td nowrap>

@@ -199,7 +199,7 @@ class HomeController extends Controller
             'educator_propagandas' => '教職宣導',
             'student_propagandas' => '學生宣導',
             'parent_propagandas' => '家長宣導',
-            'telephone_propagandas' => '戒毒成功專線宣導',
+            'telephone_propagandas' => '毒品危害防制中心諮詢專線宣導',
             'tzuchi_propagandas' => '慈濟無毒有我宣導',
             'other_propagandas' => '毒品危害防治宣導(其他)',
             'boe_actives' => '教育處自辦活動',
