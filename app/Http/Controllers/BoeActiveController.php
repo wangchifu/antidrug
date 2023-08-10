@@ -207,7 +207,8 @@ class BoeActiveController extends Controller
     public function update(Request $request,BoeActive $boe_active)
     {
         $att = $request->all();
-        $boe_active->update($att);
+        $boe_active->update($att);        
+        if(!isset($att['pics_desc'])) $att['pics_desc'] = [];
         foreach($att['pics_desc'] as $k=>$v){
             $pic = BoeActivePic::find($k);
             $att2['pic_desc'] = $v;
