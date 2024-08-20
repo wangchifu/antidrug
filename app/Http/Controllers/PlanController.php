@@ -210,7 +210,7 @@ class PlanController extends Controller
         $att['reviewed_at'] = date('Y-m-d H:i:s');
         $att['status'] =4;
         $plan->update($att);
-        return redirect('review/plans/'.$year.'?page='.$page);
+        return redirect('review1/plans/'.$year.'?page='.$page);
     }
 
     public function back(Request $request,Plan $plan)
@@ -221,7 +221,7 @@ class PlanController extends Controller
         $att['reviewed_at'] = date('Y-m-d H:i:s');
         $att['status'] = 2;
         $plan->update($att);
-        return redirect('review/plans/'.$plan->year.'?page='.$page);
+        return redirect('review1/plans/'.$plan->year.'?page='.$page);
     }
 
     public function search(Request $request)

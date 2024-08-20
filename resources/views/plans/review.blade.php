@@ -60,7 +60,17 @@
                 <tbody>
                 @foreach($plans as $plan)
                     <tr>
-                        <td>{{ $status[$plan->status] }}</td>
+                        <?php
+                            $color = "";
+                            if($plan->status==0) $color = "text-secondary";
+                            if($plan->status==1) $color = "text-primary";
+                            if($plan->status==2) $color = "text-danger";
+                            if($plan->status==3) $color = "text-warning";
+                            if($plan->status==4) $color = "text-success";
+                        ?>
+                        <td class="{{ $color }}">                            
+                            {{ $status[$plan->status] }}
+                        </td>
                         <td>
                             {{ $plan->year }}
                         </td>
