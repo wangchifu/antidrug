@@ -14,7 +14,8 @@
         <div class="card-body">
             {{ Form::open(['route' => 'plans.store', 'method' => 'post', 'files' => true]) }}
                 <div class="form-group">
-                    <label for="year">計畫年度<strong class="text-danger">*</strong></label>
+                    <label for="year">計畫年度<strong class="text-danger">*</strong></label><br>
+                    <small>民權國中小、信義國中小、原斗國中小、鹿江國中小、和美高中、田中高中、成功高中、二林高中、彰藝中，此九校僅需上傳一份即可。</small>
                     <input type="text" class="form-control" name="year" id="year" required maxlength="3" placeholder="3碼學年度">
                 </div>
                 <div class="form-group">
@@ -24,7 +25,17 @@
                     {{ Form::file('file', ['class' => 'form-control','required'=>'required']) }}
                 </div>
                 <button type="submit" class="btn btn-success btn-sm" onclick="return confirm('確定嗎？同年度會覆蓋喔！')"><i class="fas fa-plus-circle"></i> 送出</button>
-                <input type="hidden" name="school_code" value="{{ auth()->user()->school_code }}">
+                <?php
+                    $code = auth()->user()->school_code;
+                    if(auth()->user()->school_code=="074523") $code="074323";//和美高
+                    if(auth()->user()->school_code=="074528") $code="074328";//田中高
+                    if(auth()->user()->school_code=="074339") $code="074539";//成功高
+                    if(auth()->user()->school_code=="074543") $code="074760";//民權
+                    if(auth()->user()->school_code=="074541") $code="074774";//信義
+                    if(auth()->user()->school_code=="074745") $code="074537";//原斗
+                    if(auth()->user()->school_code=="074778") $code="074542";//鹿江
+                ?>
+                <input type="hidden" name="school_code" value="{{ $code }}">
                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                 <input type="hidden" name="status" value="0">
             {{ Form::close() }}
@@ -69,7 +80,7 @@
                 </td>
                 <td>
                     <?php
-                        $d = (empty($plan->user->school_code))?$plan->user->username:$plan->user->school_code;
+                        $d = (empty($plan->school_code))?$plan->user->username:$plan->school_code;
                         $files = get_files(storage_path('app/public/plans/'.$plan->year.'/'.$d));
                     ?>
                     @foreach($files as $file)

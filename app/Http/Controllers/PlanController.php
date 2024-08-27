@@ -13,47 +13,47 @@ class PlanController extends Controller
     {
         $schools = config('antidrug.schools');
         if(!empty(auth()->user()->school_code)){
-            if(auth()->user()->school_code == "074323" or auth()->user()->school_code=="074523"){
+            if(auth()->user()->school_code == "074323" or auth()->user()->school_code=="074523"){//和美高中
                 $plans = Plan::where('school_code','074323')
                     ->orWhere('school_code','074523')
                     ->orderBy('year','DESC')
                     ->get();
-            }elseif(auth()->user()->school_code == "074328" or auth()->user()->school_code=="074528") {
+            }elseif(auth()->user()->school_code == "074328" or auth()->user()->school_code=="074528") {//田中高中
                 $plans = Plan::where('school_code', '074328')
                     ->orWhere('school_code', '074528')
                     ->orderBy('year', 'DESC')
                     ->get();
-            }elseif(auth()->user()->school_code == "074339" or auth()->user()->school_code=="074539"){
+            }elseif(auth()->user()->school_code == "074339" or auth()->user()->school_code=="074539"){//成功高中
                 $plans = Plan::where('school_code','074339')
                     ->orWhere('school_code','074539')
                     ->orderBy('year','DESC')
                     ->get();
-            }elseif(auth()->user()->school_code == "074745" or auth()->user()->school_code=="074537"){
+            }elseif(auth()->user()->school_code == "074745" or auth()->user()->school_code=="074537"){//原斗
                 $plans = Plan::where('school_code','074745')
                     ->orWhere('school_code','074537')
                     ->orderBy('year','DESC')
                     ->get();
-            }elseif(auth()->user()->school_code == "074774" or auth()->user()->school_code=="074541"){
+            }elseif(auth()->user()->school_code == "074774" or auth()->user()->school_code=="074541"){//信義
                 $plans = Plan::where('school_code','074774')
                     ->orWhere('school_code','074541')
                     ->orderBy('year','DESC')
                     ->get();
-            }elseif(auth()->user()->school_code == "074760" or auth()->user()->school_code=="074543"){
+            }elseif(auth()->user()->school_code == "074760" or auth()->user()->school_code=="074543"){//民權
                 $plans = Plan::where('school_code','074760')
                     ->orWhere('school_code','074543')
                     ->orderBy('year','DESC')
                     ->get();
-            }elseif(auth()->user()->school_code == "074778" or auth()->user()->school_code=="074542"){
+            }elseif(auth()->user()->school_code == "074778" or auth()->user()->school_code=="074542"){//鹿江
                 $plans = Plan::where('school_code','074778')
                     ->orWhere('school_code','074542')
                     ->orderBy('year','DESC')
                     ->get();
-            }elseif(auth()->user()->school_code == "074313"){
+            }elseif(auth()->user()->school_code == "074313"){//二林高中
                 $plans = Plan::where('school_code','074313')
                     ->orWhere('user_id','215')
                     ->orderBy('year','DESC')
                     ->get();
-            }elseif(auth()->user()->school_code == "074308"){
+            }elseif(auth()->user()->school_code == "074308"){//彰藝
                 $plans = Plan::where('school_code','074308')
                     ->orWhere('user_id','216')
                     ->orderBy('year','DESC')
@@ -96,15 +96,24 @@ class PlanController extends Controller
         //不得超過5120KB=5MB
         $request->validate([
             'year'=>'required',
-            'files' => 'nullable|max:5120',
+            'file' => 'required|max:5120',
         ]);
         $att = $request->all();
 
         if(!empty(auth()->user()->school_code)){
-            $plan = Plan::where('year',$att['year'])->where('school_code',auth()->user()->school_code)->first();
+            $code = auth()->user()->school_code;
+            if(auth()->user()->school_code=="074523") $code="074323";//和美高
+            if(auth()->user()->school_code=="074528") $code="074328";//田中高
+            if(auth()->user()->school_code=="074339") $code="074539";//成功高
+            if(auth()->user()->school_code=="074543") $code="074760";//民權
+            if(auth()->user()->school_code=="074541") $code="074774";//信義
+            if(auth()->user()->school_code=="074745") $code="074537";//原斗
+            if(auth()->user()->school_code=="074778") $code="074542";//鹿江
+            $plan = Plan::where('year',$att['year'])->where('school_code',$code)->first();
         }else{
             $plan = Plan::where('year',$att['year'])->where('user_id',auth()->user()->id)->first();
         }
+        
 
         if(empty($plan)){
             //處理檔案上傳
@@ -144,11 +153,19 @@ class PlanController extends Controller
 
     public function submit(Plan $plan)
     {
-        if(empty($plan->scholl_code) and $plan->user_id <> auth()->user()->id){
+        if(empty($plan->school_code) and $plan->user_id <> auth()->user()->id){
             return back();
         }
 
-        if($plan->school_code != auth()->user()->school_code){
+            $code = auth()->user()->school_code;
+            if(auth()->user()->school_code=="074523") $code="074323";//和美高
+            if(auth()->user()->school_code=="074528") $code="074328";//田中高
+            if(auth()->user()->school_code=="074339") $code="074539";//成功高
+            if(auth()->user()->school_code=="074543") $code="074760";//民權
+            if(auth()->user()->school_code=="074541") $code="074774";//信義
+            if(auth()->user()->school_code=="074745") $code="074537";//原斗
+            if(auth()->user()->school_code=="074778") $code="074542";//鹿江
+        if($plan->school_code != $code ){
             return back();
         }
 
@@ -163,8 +180,15 @@ class PlanController extends Controller
         if(empty($plan->school_code) and $plan->user_id <> auth()->user()->id){
             return back();
         }
-
-        if($plan->school_code != auth()->user()->school_code){
+        $code = auth()->user()->school_code;
+        if(auth()->user()->school_code=="074523") $code="074323";//和美高
+        if(auth()->user()->school_code=="074528") $code="074328";//田中高
+        if(auth()->user()->school_code=="074339") $code="074539";//成功高
+        if(auth()->user()->school_code=="074543") $code="074760";//民權
+        if(auth()->user()->school_code=="074541") $code="074774";//信義
+        if(auth()->user()->school_code=="074745") $code="074537";//原斗
+        if(auth()->user()->school_code=="074778") $code="074542";//鹿江
+        if($plan->school_code != $code){
             return back();
         }
 

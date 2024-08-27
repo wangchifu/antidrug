@@ -139,7 +139,15 @@ if(! function_exists('upload_name')){
     function upload_name()
     {
         if(!empty(auth()->user()->school_code)){
-            return auth()->user()->school_code;
+            $code = auth()->user()->school_code;
+            if(auth()->user()->school_code=="074523") $code="074323";//和美高
+            if(auth()->user()->school_code=="074528") $code="074328";//田中高
+            if(auth()->user()->school_code=="074339") $code="074539";//成功高
+            if(auth()->user()->school_code=="074543") $code="074760";//民權
+            if(auth()->user()->school_code=="074541") $code="074774";//信義
+            if(auth()->user()->school_code=="074745") $code="074537";//原斗
+            if(auth()->user()->school_code=="074778") $code="074542";//鹿江
+            return $code;
         }else{
             return auth()->user()->username;
         }
