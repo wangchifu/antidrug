@@ -90,7 +90,7 @@ $setup = \App\Models\Setup::first();
                         <div class="header__top__right__social">
                             <a href="https://drug.chshb.gov.tw/" target="_blank"><i class="fas fa-cloud"></i> 彰化縣政府毒品危害防制中心</a>
                             <a href="https://enc.moe.edu.tw/home" target="_blank"><i class="fas fa-kaaba"></i> 防制學生藥用濫用資源網</a>
-                            <a href="https://antidrug.moj.gov.tw/home" target="_blank"><i class="fas fa-landmark"></i> 反毒大本營</a>
+                            <a href="https://antidrug.moj.gov.tw" target="_blank"><i class="fas fa-landmark"></i> 反毒大本營</a>
                         </div>
                         <div class="header__top__right__auth">
                             <?php
