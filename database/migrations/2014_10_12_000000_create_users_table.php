@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();//帳號
             $table->string('name');//姓名
             $table->string('password');//密碼
+            $table->string('personid')->nullable();
             $table->tinyInteger('disable')->nullable();//停用？
             $table->tinyInteger('special')->nullable();//是，可於每月反毒宣導績效表填報使用批次匯入功能
             $table->tinyInteger('class')->nullable();//帳號類別：1國小 2國中 3高中職 4政府機關 5民間機構

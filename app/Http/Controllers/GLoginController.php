@@ -56,6 +56,7 @@ class GLoginController extends Controller
                     $att['username'] = $username;
                     $att['name'] = $obj['name'];
                     $att['password'] = bcrypt($request->input('password'));
+                    $att['personid'] = $obj['edu_key'];
                     $att['school_code'] = $obj['code'];
                     $att['school_name'] = $schools[$obj['code']];
                     $att['type'] = "gsuite";
@@ -70,6 +71,7 @@ class GLoginController extends Controller
                     //有此使用者，即更新使用者資料
                     $att['name'] = $obj['name'];
                     $att['password'] = bcrypt($request->input('password'));
+                    $att['personid'] = $obj['edu_key'];
                     $att['school_code'] = $obj['code'];
                     $att['school_name'] = $schools[$obj['code']];
 

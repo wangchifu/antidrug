@@ -31,6 +31,7 @@ class User extends Authenticatable
         'username',
         'name',
         'password',
+        'personid',
         'disable',
         'special',
         'class',
