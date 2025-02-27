@@ -26,6 +26,7 @@ use App\Http\Controllers\UrineScreenBookController;
 use App\Http\Controllers\UrineScreenWorkController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ResultController;
+use App\Http\Controllers\OpenIDController;
 
 
 
@@ -40,6 +41,10 @@ Route::get('file/{file}', [FileController::class, 'getFile']);
 //gsuite登入
 Route::get('login', [GLoginController::class, 'login'])->name('login');
 Route::post('glogin', [GLoginController::class, 'auth'])->name('gauth');
+
+//openid登入
+Route::get('sso', [OpenIDController::class,'sso'])->name('sso');
+Route::get('auth/callback', [OpenIDController::class,'callback'])->name('callback');
 
 #登出
 Route::get('logout', [GLoginController::class, 'logout'])->name('logout');
