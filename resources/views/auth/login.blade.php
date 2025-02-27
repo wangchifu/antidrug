@@ -25,50 +25,68 @@
         <div class="card-header">
             <select class="form-select" aria-label="Default select example" name="type" required="required" id="type_select" onchange="show_form()">
                 <option value="0">--請先選擇登入帳號類型--</option>
-                <option value="gsuite" class="form-control" {{ $select1 }}>國中小 GSuite 登入</option>
+                <option value="gsuite" class="form-control" {{ $select1 }}>國中小登入</option>
                 <option value="local" class="form-control" {{ $select2 }}>本機登入(其他單位或管理)</option>
             </select>
         </div>
         <div class="card-body">
             <div id="input_form">
                 @if($select1)
-                    <a href="https://gsuite.chc.edu.tw" target="_blank"><img src="images/gsuite_logo.png"></a>
-                    <div class="form-group row">
-                        <label for="gsuite_username" class="col-md-4 col-form-label text-md-right">帳號</label>
-                        <div class="input-group col-md-6">
-                            <input tabindex="1" id="gsuite_username" type="text" class="form-control" name="username" required aria-label="Recipients username" aria-describedby="basic-addon2" placeholder="教育處 GSuite 帳號"  autofocus>
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">@chc.edu.tw</span>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">1.彰化 GSuite 登入</button>
+                      <a class="nav-link" href="{{ route('sso') }}">2.彰化縣雲端帳號登入</a>
+                      <!--
+                      <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">2.彰化縣雲端帳號登入</button>                      
+                      -->
+                    </div>
+                  </nav>
+                  <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <a href="https://gsuite.chc.edu.tw" target="_blank"><img src="images/gsuite_logo.png"></a>
+                        <div class="form-group row">
+                            <label for="gsuite_username" class="col-md-4 col-form-label text-md-right">帳號</label>
+                            <div class="input-group col-md-6">
+                                <input tabindex="1" id="gsuite_username" type="text" class="form-control" name="username" required aria-label="Recipients username" aria-describedby="basic-addon2" placeholder="教育處 GSuite 帳號"  autofocus>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">@chc.edu.tw</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">密碼</label>
-                        <div class="col-md-6">
-                            <input tabindex="2" id="password" type="password" class="form-control" name="password" required placeholder="密碼">
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">密碼</label>
+                            <div class="col-md-6">
+                                <input tabindex="2" id="password" type="password" class="form-control" name="password" required placeholder="密碼">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-4 text-md-left">
+                        <div class="form-group row">
+                            <div class="col-md-4 text-md-left">
+                            </div>
+                            <div class="col-md-6 text-md-left">
+                                <img src="pic" class="img-fluid" id="captcha_img"> <div class="badge badge-secondary"><i class="fas fa-recycle" onclick="change_img()"></i></div>
+                            </div>
                         </div>
-                        <div class="col-md-6 text-md-left">
-                            <img src="pic" class="img-fluid" id="captcha_img"> <div class="badge badge-secondary"><i class="fas fa-recycle" onclick="change_img()"></i></div>
+                        <div class="form-group row">
+                            <label for="chaptcha" class="col-md-4 col-form-label text-md-right">驗證碼</label>
+    
+                            <div class="col-md-6">
+                                <input tabindex="3" id="password" type="text" class="form-control" name="chaptcha" required placeholder="上圖數字" maxlength="5">
+                            </div>
                         </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button tabindex="3" type="submit" class="btn btn-primary">
+                                    <i class="fas fa-sign-in-alt"></i> 登入
+                                </button>
+                            </div>
+                        </div>                        
                     </div>
-                    <div class="form-group row">
-                        <label for="chaptcha" class="col-md-4 col-form-label text-md-right">驗證碼</label>
-
-                        <div class="col-md-6">
-                            <input tabindex="3" id="password" type="text" class="form-control" name="chaptcha" required placeholder="上圖數字" maxlength="5">
-                        </div>
-                    </div>
-                    <div class="form-group row mb-0">
-                        <div class="col-md-8 offset-md-4">
-                            <button tabindex="3" type="submit" class="btn btn-primary">
-                                <i class="fas fa-sign-in-alt"></i> 登入
-                            </button>
-                        </div>
-                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        ...
+                    </div>                    
+                  </div>
+                  
+                    
                 @endif
                 @if($select2)
                     <div class="form-group row">
@@ -128,6 +146,14 @@
 
             }else{
                 if($('#type_select').val()=="gsuite"){
+                    all = all+'<nav>';
+                    all = all+'<div class="nav nav-tabs" id="nav-tab" role="tablist">';                    
+                    all = all+'<button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">1.彰化 GSuite 登入</button>';
+                    all = all+'<a class="nav-link" href="{{ route('sso') }}">2.彰化縣雲端帳號登入</a>';
+                    all = all+'</div>';
+                    all = all+'</nav>';
+                    all = all+'<div class="tab-content" id="nav-tabContent">';
+                    all = all+'<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">';                                                                                                                          
                     all = all+'<a href="https://gsuite.chc.edu.tw" target="_blank"><img src="images/gsuite_logo.png"></a>';
                     all = all+'<div class="form-group row">';
                     all = all+'<label for="gsuite_username" class="col-md-4 col-form-label text-md-right">帳號</label>';
@@ -137,7 +163,13 @@
                     all = all+'<span class="input-group-text" id="basic-addon2">@chc.edu.tw</span>';
                     all = all+'</div>';
                     all = all+'</div>';
+                    all = all+'</div>';                    
                     all = all+'</div>';
+                    all = all+'<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">';
+                    all = all+'...';                        
+                    all = all+'</div>';
+                    all = all+'</div>';
+                                            
                 }else if($('#type_select').val()=="local"){
                     all = all+'<div class="form-group row">';
                     all = all+'<label for="local_username" class="col-md-4 col-form-label text-md-right">帳號</label>';
