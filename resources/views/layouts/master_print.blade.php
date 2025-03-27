@@ -9,7 +9,7 @@ $setup = \App\Models\Setup::first();
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">        
     <title>彰化縣政府毒品危害防制中心預防宣導組</title>
 
     <!-- Google Font -->
