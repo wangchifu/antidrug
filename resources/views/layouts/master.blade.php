@@ -153,7 +153,7 @@ $setup = \App\Models\Setup::first();
 @include('layouts.footer')
 
 <!-- Js Plugins -->
-<script src="{{ asset('ogani/js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('js/jquery-3.7.1.js') }}"></script>
 <script src="{{ asset('ogani/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('ogani/js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('ogani/js/jquery-ui.min.js') }}"></script>
