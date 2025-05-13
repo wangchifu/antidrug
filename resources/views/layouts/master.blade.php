@@ -1,4 +1,5 @@
 <?php
+setcookie('cross-site-cookie', 'name', ['samesite' => 'Strict', 'secure' => true, 'httponly' =>true]);
 $setup = \App\Models\Setup::first();
 ?>
 <!DOCTYPE html>
