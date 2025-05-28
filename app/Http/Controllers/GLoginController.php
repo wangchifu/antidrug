@@ -97,15 +97,15 @@ class GLoginController extends Controller
             }
         }
         //登入
-        if(Auth::attempt(['username' => $username,
-            'password' => $request->input('password')])){
-
-            $a['last_login'] = date('Y-m-d H:i:s');
-            $user->update($a);
-            return redirect()->route('index');
-        }else{
-            return back()->withErrors(['error'=>'本機帳號密碼錯誤，是不是首兩個英文字沒有大寫？','select'=>'local']);
-        }
+        //if(Auth::attempt(['username' => $username,
+        //    'password' => $request->input('password')])){
+        //}else{
+        //    return back()->withErrors(['error'=>'本機帳號密碼錯誤，是不是首兩個英文字沒有大寫？','select'=>'local']);
+        //}
+        $a['last_login'] = date('Y-m-d H:i:s');
+        $user->update($a);
+        Auth::login($user);
+        return redirect()->route('index');
 
     }
 
