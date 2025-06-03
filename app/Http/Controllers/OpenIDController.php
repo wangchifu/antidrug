@@ -133,6 +133,7 @@ class OpenIDController extends Controller
             }
             
             $user = User::where('personid',$user_obj['personid'])
+                    ->where('school_code', $user_obj['code'])          
                     ->first();
 
                 if(empty($user)){

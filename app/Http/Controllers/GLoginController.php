@@ -48,6 +48,7 @@ class GLoginController extends Controller
                 $username = $u[0];
 
                 $user = User::where('personid',$obj['edu_key'])
+                    ->where('school_code', $obj['code'])           
                     ->first();
 
                 if(empty($user)){
