@@ -25,6 +25,7 @@ $setup = \App\Models\Setup::first();
     <!-- Fontawesome -->
     <link rel="stylesheet" href="{{ asset('fontawesome-free-5.10.2-web/css/all.css')}}">
     <link rel="stylesheet" href="{{ asset('venobox/venobox.min.css') }}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{{ asset('css/my_css.css')}}">
     <script src="{{ asset('venobox/venobox.min.js') }}"></script>
 </head>
 

@@ -32,61 +32,12 @@
         <div class="card-body">
             <div id="input_form">
                 @if($select1)
-                <nav>
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                      <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">1.彰化 GSuite 登入</button>
-                      <a class="nav-link" href="{{ route('sso') }}">2.彰化縣雲端帳號登入</a>
-                      <!--
-                      <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">2.彰化縣雲端帳號登入</button>                      
-                      -->
-                    </div>
-                  </nav>
-                  <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <a href="https://gsuite.chc.edu.tw" target="_blank"><img src="images/gsuite_logo.png"></a>
-                        <div class="form-group row">
-                            <label for="gsuite_username" class="col-md-4 col-form-label text-md-right">帳號</label>
-                            <div class="input-group col-md-6">
-                                <input tabindex="1" id="gsuite_username" type="text" class="form-control" name="username" required aria-label="Recipients username" aria-describedby="basic-addon2" placeholder="教育處 GSuite 帳號"  autofocus>
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2">@chc.edu.tw</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">密碼</label>
-                            <div class="col-md-6">
-                                <input tabindex="2" id="password" type="password" class="form-control" name="password" required placeholder="密碼">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-4 text-md-left">
-                            </div>
-                            <div class="col-md-6 text-md-left">
-                                <img src="pic" class="img-fluid" id="captcha_img"> <div class="badge badge-secondary"><i class="fas fa-recycle" onclick="change_img()"></i></div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="chaptcha" class="col-md-4 col-form-label text-md-right">驗證碼</label>
-    
-                            <div class="col-md-6">
-                                <input tabindex="3" id="password" type="text" class="form-control" name="chaptcha" required placeholder="上圖數字" maxlength="5">
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button tabindex="3" type="submit" class="btn btn-primary">
-                                    <i class="fas fa-sign-in-alt"></i> 登入
-                                </button>
-                            </div>
-                        </div>                        
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        ...
-                    </div>                    
-                  </div>
-                  
-                    
+                    <div class="text-center">
+                        <a href="{{ route('sso') }}" class="image-button">
+                            <img src="{{ asset('images/chc.jpg') }}" alt="彰化chc的logo" width="120">
+                        </a>
+                        <br>OpenID登入
+                    </div>                                        
                 @endif
                 @if($select2)
                     <div class="form-group row">
@@ -146,30 +97,12 @@
 
             }else{
                 if($('#type_select').val()=="gsuite"){
-                    all = all+'<nav>';
-                    all = all+'<div class="nav nav-tabs" id="nav-tab" role="tablist">';                    
-                    all = all+'<button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">1.彰化 GSuite 登入</button>';
-                    all = all+'<a class="nav-link" href="{{ route('sso') }}">2.彰化縣雲端帳號登入</a>';
-                    all = all+'</div>';
-                    all = all+'</nav>';
-                    all = all+'<div class="tab-content" id="nav-tabContent">';
-                    all = all+'<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">';                                                                                                                          
-                    all = all+'<a href="https://gsuite.chc.edu.tw" target="_blank"><img src="images/gsuite_logo.png"></a>';
-                    all = all+'<div class="form-group row">';
-                    all = all+'<label for="gsuite_username" class="col-md-4 col-form-label text-md-right">帳號</label>';
-                    all = all+'<div class="input-group col-md-6">';
-                    all = all+'<input tabindex="1" id="gsuite_username" type="text" class="form-control" name="username" required aria-label="Recipients username" aria-describedby="basic-addon2" placeholder="教育處 GSuite 帳號">';
-                    all = all+'<div class="input-group-append">';
-                    all = all+'<span class="input-group-text" id="basic-addon2">@chc.edu.tw</span>';
-                    all = all+'</div>';
-                    all = all+'</div>';
-                    all = all+'</div>';                    
-                    all = all+'</div>';
-                    all = all+'<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">';
-                    all = all+'...';                        
-                    all = all+'</div>';
-                    all = all+'</div>';
-                                            
+                    all = all+'<div class="text-center">';
+                    all = all+'<a href="{{ route('sso') }}" class="image-button">';
+                    all = all+'<img src="{{ asset('images/chc.jpg') }}" alt="彰化chc的logo" width="120">';
+                    all = all+'</a>';
+                    all = all+'<br>OpenID登入';
+                    all = all+'</div>';                                                                                  
                 }else if($('#type_select').val()=="local"){
                     all = all+'<div class="form-group row">';
                     all = all+'<label for="local_username" class="col-md-4 col-form-label text-md-right">帳號</label>';
@@ -177,34 +110,34 @@
                     all = all+'<input tabindex="1" id="local_username" type="text" class="form-control" name="username" required aria-label="Recipients username" aria-describedby="basic-addon2" placeholder="本機帳號">';
                     all = all+'</div>';
                     all = all+'</div>';
-                }
-                all = all+'<div class="form-group row">';
-                all = all+'<label for="password" class="col-md-4 col-form-label text-md-right">密碼</label>';
-                all = all+'<div class="col-md-6">';
-                all = all+'<input tabindex="2" id="password" type="password" class="form-control" name="password" required placeholder="密碼">';
-                all = all+'</div>';
-                all = all+'</div>';
-                all = all+'<div class="form-group row">';
-                all = all+'<div class="col-md-4 text-md-left">';
-                all = all+'</div>';
-                all = all+'<div class="col-md-6 text-md-left">';
-                all = all+'<img src="pic" class="img-fluid" id="captcha_img">';
-                all = all+' <div class="badge badge-secondary"><i class="fas fa-recycle" onclick="change_img()"></i></div>';
-                all = all+'</div>';
-                all = all+'</div>';
-                all = all+'<div class="form-group row">';
-                all = all+'<label for="chaptcha" class="col-md-4 col-form-label text-md-right">驗證碼</label>';
-                all = all+'<div class="col-md-6">';
-                all = all+'<input tabindex="3" id="password" type="text" class="form-control" name="chaptcha" required placeholder="上圖數字" maxlength="5">';
-                all = all+'</div>';
-                all = all+'</div>';
-                all = all+'<div class="form-group row mb-0">';
-                all = all+'<div class="col-md-8 offset-md-4">';
-                all = all+'<button tabindex="3" type="submit" class="btn btn-primary">';
-                all = all+'<i class="fas fa-sign-in-alt"></i> 登入';
-                all = all+'</button>';
-                all = all+'</div>';
-                all = all+'</div>';
+                    all = all+'<div class="form-group row">';
+                    all = all+'<label for="password" class="col-md-4 col-form-label text-md-right">密碼</label>';
+                    all = all+'<div class="col-md-6">';
+                    all = all+'<input tabindex="2" id="password" type="password" class="form-control" name="password" required placeholder="密碼">';
+                    all = all+'</div>';
+                    all = all+'</div>';
+                    all = all+'<div class="form-group row">';
+                    all = all+'<div class="col-md-4 text-md-left">';
+                    all = all+'</div>';
+                    all = all+'<div class="col-md-6 text-md-left">';
+                    all = all+'<img src="pic" class="img-fluid" id="captcha_img">';
+                    all = all+' <div class="badge badge-secondary"><i class="fas fa-recycle" onclick="change_img()"></i></div>';
+                    all = all+'</div>';
+                    all = all+'</div>';
+                    all = all+'<div class="form-group row">';
+                    all = all+'<label for="chaptcha" class="col-md-4 col-form-label text-md-right">驗證碼</label>';
+                    all = all+'<div class="col-md-6">';
+                    all = all+'<input tabindex="3" id="password" type="text" class="form-control" name="chaptcha" required placeholder="上圖數字" maxlength="5">';
+                    all = all+'</div>';
+                    all = all+'</div>';
+                    all = all+'<div class="form-group row mb-0">';
+                    all = all+'<div class="col-md-8 offset-md-4">';
+                    all = all+'<button tabindex="3" type="submit" class="btn btn-primary">';
+                    all = all+'<i class="fas fa-sign-in-alt"></i> 登入';
+                    all = all+'</button>';
+                    all = all+'</div>';
+                    all = all+'</div>';
+                }                
             }
             document.getElementById('input_form').innerHTML= all;
             if($('#type_select').val()=="gsuite"){
