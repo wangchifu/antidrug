@@ -102,7 +102,12 @@
                     all = all+'<img src="{{ asset('images/chc.jpg') }}" alt="彰化chc的logo" width="120">';
                     all = all+'</a>';
                     all = all+'<br>OpenID登入';
-                    all = all+'</div>';                                                                                  
+                    all = all+'</div>';     
+                    all = all+'<div class="text-center mt-3">';
+                    all = all+'<a href="https://eip.chc.edu.tw/recovery-password" target="_blank" class="btn btn-warning">';
+                    all = all+'忘記密碼？';
+                    all = all+'</a>';      
+                    all = all+'</div>';                                                                             
                 }else if($('#type_select').val()=="local"){
                     all = all+'<div class="form-group row">';
                     all = all+'<label for="local_username" class="col-md-4 col-form-label text-md-right">帳號</label>';
