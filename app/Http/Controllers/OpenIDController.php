@@ -119,18 +119,22 @@ class OpenIDController extends Controller
       $user_obj['name'] = $userinfo['name'];      
       $user_obj['personid'] = $profile['personid'];
       $user_obj['code'] = $edufile['schoolid'];
-      $user_obj['kind'] = $edufile['titles'][0]['titles'][1];
-      if ($user_obj['kind'] == "學生") {
-        return redirect()->route('login')->withErrors(['errors' => ['學生禁止進入']]);
-      }      
       $user_obj['title'] = $edufile['titles'][0]['titles'][0];
+      $user_obj['kind'] = $edufile['titles'][0]['titles'][1];
+      if ($user_obj['title'] == "學生") {
+        $message = "學生禁止訪問";
+        $url = "https://chc.sso.edu.tw/oidc/v1/logout-to-go";
+        $post_logout_redirect_uri = url('login');        
+        $id_token_hint = session('id_token');
+        $link = $url . "?post_logout_redirect_uri=".$post_logout_redirect_uri."&id_token_hint=" . $id_token_hint;
+        return redirect($link)->withErrors(['gsuite_error' => [$message]]);        
+      }else{
+        $user_obj['kind'] = $edufile['titles'][0]['titles'][1];
+      }      
+      
 
         //學生禁止訪問
-        if ($user_obj['success']) {
-
-            if ($user_obj['kind'] == "學生") {
-                return redirect()->route('login')->withErrors(['errors' => ['學生禁止進入']]);
-            }
+        if ($user_obj['success']) {            
             
             $user = User::where('personid',$user_obj['personid'])
                     ->where('school_code', $user_obj['code'])          
@@ -151,7 +155,12 @@ class OpenIDController extends Controller
                 }else{
                     //非教職員，即跳開
                     if($user->disable==1){
-                        return redirect()->route('login')->withErrors(['error'=>'你被停用了','select'=>'gsuite']);
+                      $message = "你被停用了";
+                      $url = "https://chc.sso.edu.tw/oidc/v1/logout-to-go";
+                      $post_logout_redirect_uri = url('logins');        
+                      $id_token_hint = session('id_token');
+                      $link = $url . "?post_logout_redirect_uri=".$post_logout_redirect_uri."&id_token_hint=" . $id_token_hint;
+                      return redirect($link)->withErrors(['gsuite_error' => [$message]]);                                              
                     }
                     //有此使用者，即更新使用者資料
                     $att['name'] = $user_obj['name'];
