@@ -3,7 +3,7 @@
 @section('content')
     <h3>
         <img src="{{ asset('images/icons/parents.png') }}" height="40">
-        家長藥物濫用防制知能研習(每學年一次)管理
+        家長藥物濫用防制知能研習(每年度一次)管理
     </h3>
     <br>
     <br>

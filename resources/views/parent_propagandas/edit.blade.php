@@ -12,7 +12,7 @@
         <div class="card-header">
             <h5>
                 <img src="{{ asset('images/icons/parents.png') }}" height="40">
-                家長藥物濫用防制知能研習(每學年一次)
+                家長藥物濫用防制知能研習(每年度一次)
             </h5>
         </div>
         <div class="card-body">
