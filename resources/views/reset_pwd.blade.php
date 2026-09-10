@@ -29,7 +29,7 @@
                     <button type="submit" class="btn btn-primary" onclick="return confirm('確定嗎？')">送出</button>
                 </form>
             @elseif(auth()->user()->type=='gsuite')
-                使用 GSuite 登入，登入校務系統 <a href="https://cloudschool.chc.edu.tw" target="_blank">cloudschool</a> 更改，本站密碼即同步。
+                使用 OpenID 登入，登入 EIP 系統 <a href="https://eip.chc.edu.tw" target="_blank">EIP</a> 更改，本站密碼即同步。
             @endif
         </div>
     </div>

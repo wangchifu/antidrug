@@ -103,7 +103,8 @@ class HomeController extends Controller
         for ($i = 0; $i < 5; $i++) $cht_key .= $cht[substr($key, $i, 1)];
 
         header("Content-type: image/gif");
-        $im = imagecreatefromgif(asset('images/back/01.gif')) or die("無法建立GD圖片");
+        // 改用 public_path 取得本機實體檔案路徑
+        $im = imagecreatefromgif(public_path('images/back/01.gif')) or die("無法建立GD圖片");
         $text_color = imagecolorallocate($im, $r, $g, $b);
 
         imagettftext($im, 25, 0, 5, 32, $text_color, public_path('font/AdobeGothicStd-Bold.otf'), $cht_key);
